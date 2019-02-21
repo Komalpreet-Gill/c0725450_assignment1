@@ -26,7 +26,7 @@ namespace C0725450_week07
             Alst.distanceToEastVillage = 19;
             Alst.distanceToWestVillage = 14;
             Alst.west = Schvenig;
-            Alst.east = Wessig;
+            Alst.east = Wessig; 
 
             //Schvenig.distanceToNextVillage = 0;
             Schvenig.west = null;
