@@ -18,7 +18,7 @@ namespace C0725450_week07
         }
         public void Run()
         {
-            this.TravelVillages(Alst);
+            
             Alst = new Village("Alst", false);
             Schvenig = new Village("Schvenig", false);
             Wessig = new Village("Wessig", true);
@@ -36,7 +36,7 @@ namespace C0725450_week07
             //Alst.distanceToNextVillage = 14;
             Wessig.west = null;
             Wessig.east = null;
-
+            this.TravelVillages(Alst);
         }
         public void TravelVillages(Village currentVillage)
         {
