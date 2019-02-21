@@ -4,12 +4,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c0725450_assignment1
+namespace C0725450_week07
 {
-    class Program
+
+
+
+    class CountrySide
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            new CountrySide().Run();
+            
         }
+        public void Run()
+        {
+            this.TravelVillages(Alst);
+            Alst = new Village("Alst", false);
+            Schvenig = new Village("Schvenig", false);
+            Wessig = new Village("Wessig", true);
+
+            Alst.distanceToEastVillage = 19;
+            Alst.distanceToWestVillage = 14;
+            Alst.west = Schvenig;
+            Alst.east = Wessig;
+
+            //Schvenig.distanceToNextVillage = 0;
+            Schvenig.west = null;
+            Schvenig.east = null;
+
+
+            //Alst.distanceToNextVillage = 14;
+            Wessig.west = null;
+            Wessig.east = null;
+
+        }
+        public void TravelVillages(Village currentVillage)
+        {
+            
+            if (currentVillage.isAstrildgeHere)
+            {
+                Console.WriteLine("I found Dear Astrildge in {0}",currentVillage.VillageName);
+                Console.WriteLine("***Feeling Happy****");
+
+                return;
+            }
+            TravelVillages(currentVillage.west);
+            TravelVillages(currentVillage.east);
+
+
+        }
+        // Create the LinkedList to reflect the Map in the PowerPoint Instructions
+        Village Maeland;
+        Village Helmholtz;
+        Village Alst;
+        Village Wessig;
+        Village Badden;
+        Village Uster;
+        Village Schvenig;
+
+    }
+
+    class Village
+    {
+        public Village(string _villageName, bool _isAHere)
+        {
+            isAstrildgeHere = _isAHere;
+            VillageName = _villageName;
+        }
+
+        public Village west;
+        public Village east;
+        public Village temp;
+        public  string VillageName;
+        //public int distanceToNextVillage;
+        public int distanceToEastVillage;
+        public int distanceToWestVillage;
+        //public int distanceToPreviousVillage;
+        public bool isAstrildgeHere;
     }
 }
+
