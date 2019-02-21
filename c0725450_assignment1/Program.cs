@@ -40,17 +40,23 @@ namespace C0725450_week07
         }
         public void TravelVillages(Village currentVillage)
         {
-            
-            if (currentVillage.isAstrildgeHere)
+            try
             {
-                Console.WriteLine("I found Dear Astrildge in {0}",currentVillage.VillageName);
-                Console.WriteLine("***Feeling Happy****");
 
-                return;
+                if (currentVillage.isAstrildgeHere)
+                {
+                    Console.WriteLine("I found Dear Astrildge in {0}", currentVillage.VillageName);
+                    Console.WriteLine("***Feeling Happy****");
+
+                    return;
+                }
+                TravelVillages(currentVillage.west);
+                TravelVillages(currentVillage.east);
             }
-            TravelVillages(currentVillage.west);
-            TravelVillages(currentVillage.east);
-
+            catch(NullReferenceException nre)
+            {
+                Console.WriteLine("Here be Dragons");
+            }
 
         }
         // Create the LinkedList to reflect the Map in the PowerPoint Instructions
